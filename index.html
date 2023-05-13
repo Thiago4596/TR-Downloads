@@ -4,68 +4,51 @@
   <title>TR Downloads</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* Estilos para computador */
+    @media screen and (min-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+
+      ul {
+        justify-content: center;
+      }
+
+      li {
+        margin: 20px;
+        flex-basis: 200px;
+        flex-grow: 1;
+        max-width: 300px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        object-fit: cover;
+      }
+    }
+
     /* Estilos para dispositivos móveis */
-    @media screen and (max-width: 480px) {
-      /* Adicione aqui os estilos específicos para dispositivos móveis */
-    }
+    @media screen and (max-width: 767px) {
+      body {
+        font-size: 14px;
+      }
 
-    /* Estilos para computadores */
-    @media screen and (min-width: 481px) {
-      /* Adicione aqui os estilos específicos para computadores */
-    }
-    
-    /* Estilos comuns a ambos os dispositivos */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
+      ul {
+        justify-content: flex-start;
+      }
 
-    h1 {
-      margin-bottom: 20px;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    li {
-      margin: 10px;
-      flex-basis: 200px;
-      flex-grow: 1;
-      max-width: 300px;
-    }
-
-    a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      color: #333;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-      object-fit: cover;
+      li {
+        margin: 10px;
+        width: 100%;
+      }
     }
   </style>
   <script>
-    // Detecção de dispositivo móvel
-    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-    // Adaptação do estilo de acordo com o dispositivo
-    if (isMobile) {
-      // Estilos específicos para dispositivos móveis
-    } else {
-      // Estilos específicos para computadores
+    // Detecção de dispositivo
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+      document.documentElement.classList.add('mobile');
     }
   </script>
 </head>
@@ -92,5 +75,12 @@
       </a>
     </li>
   </ul>
+
+  <script>
+    // Atualização de estilos com base no dispositivo
+    if (document.documentElement.classList.contains('mobile')) {
+      // Adicione estilos específicos para dispositivos móveis aqui, se necessário
+    }
+  </script>
 </body>
 </html>
