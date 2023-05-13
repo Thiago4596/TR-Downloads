@@ -4,52 +4,61 @@
   <title>TR Downloads</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Estilos para computador */
-    @media screen and (min-width: 768px) {
+    /* Estilos para dispositivos móveis */
+    @media only screen and (max-width: 768px) {
       body {
         font-size: 16px;
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      li {
+        margin: 5px;
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+    }
+
+    /* Estilos para computadores */
+    @media only screen and (min-width: 769px) {
+      body {
+        font-size: 18px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
       }
 
       ul {
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
       }
 
       li {
-        margin: 20px;
+        margin: 10px;
         flex-basis: 200px;
         flex-grow: 1;
         max-width: 300px;
       }
-
-      img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 10px;
-        object-fit: cover;
-      }
-    }
-
-    /* Estilos para dispositivos móveis */
-    @media screen and (max-width: 767px) {
-      body {
-        font-size: 14px;
-      }
-
-      ul {
-        justify-content: flex-start;
-      }
-
-      li {
-        margin: 10px;
-        width: 100%;
-      }
     }
   </style>
   <script>
-    // Detecção de dispositivo
-    if (/Mobi|Android/i.test(navigator.userAgent)) {
-      document.documentElement.classList.add('mobile');
-    }
+    // Detecção de dispositivo e adição de classe no elemento HTML
+    (function() {
+      var userAgent = navigator.userAgent;
+      if (/Mobi/.test(userAgent)) {
+        document.documentElement.classList.add('is-mobile');
+      } else {
+        document.documentElement.classList.add('is-desktop');
+      }
+    })();
   </script>
 </head>
 <body>
@@ -75,12 +84,5 @@
       </a>
     </li>
   </ul>
-
-  <script>
-    // Atualização de estilos com base no dispositivo
-    if (document.documentElement.classList.contains('mobile')) {
-      // Adicione estilos específicos para dispositivos móveis aqui, se necessário
-    }
-  </script>
 </body>
 </html>
