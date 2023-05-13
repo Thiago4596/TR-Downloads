@@ -4,6 +4,17 @@
   <title>TR Downloads</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* Estilos para dispositivos móveis */
+    @media screen and (max-width: 480px) {
+      /* Adicione aqui os estilos específicos para dispositivos móveis */
+    }
+
+    /* Estilos para computadores */
+    @media screen and (min-width: 481px) {
+      /* Adicione aqui os estilos específicos para computadores */
+    }
+    
+    /* Estilos comuns a ambos os dispositivos */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -46,6 +57,17 @@
       object-fit: cover;
     }
   </style>
+  <script>
+    // Detecção de dispositivo móvel
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    // Adaptação do estilo de acordo com o dispositivo
+    if (isMobile) {
+      // Estilos específicos para dispositivos móveis
+    } else {
+      // Estilos específicos para computadores
+    }
+  </script>
 </head>
 <body>
   <h1>Site de Download</h1>
