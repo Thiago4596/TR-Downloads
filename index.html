@@ -4,6 +4,13 @@
   <title>TR Downloads</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* Estilos globais */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
     /* Estilos para dispositivos móveis */
     @media only screen and (max-width: 768px) {
       body {
@@ -16,10 +23,25 @@
         margin-bottom: 10px;
       }
 
+      ul {
+        padding-left: 0;
+      }
+
       li {
-        margin: 5px;
-        flex-basis: 100%;
-        max-width: 100%;
+        margin-bottom: 15px;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+      }
+
+      img {
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
       }
     }
 
@@ -39,6 +61,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        padding-left: 0;
       }
 
       li {
@@ -46,6 +69,20 @@
         flex-basis: 200px;
         flex-grow: 1;
         max-width: 300px;
+      }
+
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+      }
+
+      img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 10px;
       }
     }
   </style>
@@ -68,19 +105,19 @@
     <li>
       <a href="Downloads/macrium-reflect-free-8-0-7279.exe">
         <img src="Imagens/Macrium.jpg" alt="Imagem 1">
-        Arquivo 1
+        <span>Arquivo 1</span>
       </a>
     </li>
     <li>
       <a href="Downloads/script-completo.zip">
         <img src="Imagens/Pasta.jpg" alt="Imagem 2">
-        Arquivo 2
+        <span>Arquivo 2</span>
       </a>
     </li>
     <li>
       <a href="caminho/para/arquivo3">
         <img src="caminho/para/imagem3.jpg" alt="Imagem 3">
-        Arquivo 3
+        <span>Arquivo 3</span>
       </a>
     </li>
   </ul>
