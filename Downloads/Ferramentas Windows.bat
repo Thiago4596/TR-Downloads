@@ -8,7 +8,8 @@ echo 2. Ferramenta de Resolucao de Problemas do Windows (DISM)
 echo 3. Ferramenta de Reparo do Componente do Sistema (SFC /SCANNOW)
 echo 4. Limpar dados dos Navegadores (Script Completo)
 echo 5. Verificar ativação do Windows (SLMGR)
-echo 6. Sair
+echo 6. Limpeza de DNS (FlushDNS)
+echo 7. Sair
 echo Escolha a ferramenta que deseja utilizar:
 set /p tool=
 
@@ -21,11 +22,15 @@ if "%tool%"=="2" (
 echo Executando dism...
 echo RestoreHealth
 dism /online /cleanup-image /RestoreHealth
+pause
+goto start
 )
 
 if "%tool%"=="3" (
 echo Executando sfc /scannow...
 sfc /scannow
+pause
+goto start
 )
 
 if "%tool%"=="4" (
@@ -191,7 +196,8 @@ rmdir /q /s C:\Users\%USERNAME%\AppData\Local\Google\Chrome\"User Data"\"Profile
 rmdir /q /s C:\Users\%USERNAME%\AppData\Local\Google\Chrome\"User Data"\"Profile 2"\GPUCache\
 rmdir /q /s C:\Users\%USERNAME%\AppData\Local\Google\Chrome\"User Data"\"Profile 2"\Storage\ext\
 
-exit
+pause
+goto start
 )
 
 if "%tool%"=="5" (
@@ -203,12 +209,24 @@ if %errorlevel% == 0 (
   echo A ativação é permanente.
 ) else (
   echo A ativação não é permanente.
+pause
+goto start
 )
 
 
 )
 
 if "%tool%"=="6" (
+echo Iniciando limpeza de DNS
+ipconfig /flushdns
+pause
+goto start
+)
+
+
+)
+
+if "%tool%"=="7" (
 echo Saindo...
 exit
 )
