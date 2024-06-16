@@ -1,7 +1,5 @@
 # TR Downloads
 
-![Texto alternativo](url_da_imagem.jpg)
-
 ## Ferramentas Windows
 - **Macrium Reflect**: Software de backup e clonagem de disco.
 - **Rufus**: Utilitário para criar mídias de boot USB.
