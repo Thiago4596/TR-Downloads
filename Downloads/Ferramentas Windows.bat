@@ -3,6 +3,7 @@ chcp 65001
 :start
 cls
 echo ------------- Ferramentas de Reparo do Windows -------------
+echo V 1.2
 echo 1. Verificacao do disco (CHKDSK)
 echo 2. Ferramenta de Resolucao de Problemas do Windows (DISM)
 echo 3. Ferramenta de Reparo do Componente do Sistema (SFC /SCANNOW)
