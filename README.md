@@ -8,3 +8,6 @@
 - **Recuva**: Software para recuperação de arquivos deletados.
 - **ADWCleaner**: Utilitário para remover adware e malware.
 - **Winaero Tweaker**: Ferramenta para personalizar o Windows.
+
+
+**Todos os Downloads são seguros geralmente levando direto para a site do desenvolvedor do Software**
