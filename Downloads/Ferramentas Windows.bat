@@ -3,7 +3,7 @@ chcp 65001
 :start
 cls
 echo ------------- Ferramentas de Reparo do Windows -------------
-echo V 1.2
+echo V 1.3
 echo 1. Verificacao do disco (CHKDSK)
 echo 2. Ferramenta de Resolucao de Problemas do Windows (DISM)
 echo 3. Ferramenta de Reparo do Componente do Sistema (SFC /SCANNOW)
@@ -70,7 +70,6 @@ REM Apaga arquivo vazio.txt dentro da pasta \Windows\Temp
 del c:\Windows\Temp\vazio.txt
 
 REM ******************** ARQUIVOS DE LOG DO WINDOWS ********************
-
 del C:\Windows\Logs\cbs\*.log
 del C:\Windows\setupact.log
 attrib -s c:\windows\logs\measuredboot\*.*
@@ -91,6 +90,7 @@ del C:\Windows\logs\*.log /s /q
 del C:\Windows\SoftwareDistribution\*.log /s /q
 del C:\Windows\Microsoft.NET\*.log /s /q
 
+REM ******************** ARQUIVOS DE LOG DO ONEDRIVE ********************
 taskkill /F /IM "OneDrive.exe"
 for /d %%F in (C:\Users\*) do del %%F\AppData\Local\Microsoft\OneDrive\setup\logs\*.log /s /q
 for /d %%F in (C:\Users\*) do del %%F\AppData\Local\Microsoft\OneDrive\*.odl /s /q
@@ -345,14 +345,28 @@ for /d %%F in (C:\Users\*) do del %%F\AppData\Local\Vivaldi\"User Data"\BrowserM
 for /d %%F in (C:\Users\*) do del %%F\AppData\Local\Vivaldi\"User Data"\crash*.pma /s /q
 
 REM ******************** SPOTIFY ********************
-
 for /d %%F in (C:\Users\*) do del %%F\AppData\Local\Spotify\Data\*.file /s /q
 for /d %%F in (C:\Users\*) do del %%F\AppData\Local\Spotify\Browser\Cache\"Cache_Data"\f*. /s /q
 for /d %%F in (C:\Users\*) do del %%F\AppData\Local\Spotify\Browser\GPUCache\*. /s /q
 
 REM ******************** ADOBE MEDIA CACHE FILES ********************
-
 for /d %%F in (C:\Users\*) do del %%F\AppData\Roaming\Adobe\Common\"Media Cache files"\*.* /s /q
+for /d %%F in (C:\Users\*) do del %%F\AppData\Roaming\Adobe\*.log /s /q
+
+REM ******************** VMWARE ********************
+del C:\ProgramData\VMware\logs\*.log /s /q
+
+REM ******************** TeamViewer ********************
+for /l %%i in (1,1,12) do (for /d %%F in (C:\Users\*) do del %%F\AppData\Local\TeamViewer\EdgeBrowserControl\Persistent\data_*.  /s /q)
+for /d %%u in (C:\Users\*) do (if exist "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" (forfiles /P "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" /S /M *_0 /C "cmd /c del @path"))
+for /d %%u in (C:\Users\*) do (if exist "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" (forfiles /P "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" /S /M *_1 /C "cmd /c del @path"))
+for /d %%u in (C:\Users\*) do (if exist "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" (forfiles /P "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" /S /M *_2 /C "cmd /c del @path"))
+for /d %%u in (C:\Users\*) do (if exist "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" (forfiles /P "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" /S /M *_3 /C "cmd /c del @path"))
+for /d %%u in (C:\Users\*) do (if exist "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" (forfiles /P "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" /S /M *_4 /C "cmd /c del @path"))
+for /d %%u in (C:\Users\*) do (if exist "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" (forfiles /P "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" /S /M *_5 /C "cmd /c del @path"))
+for /d %%u in (C:\Users\*) do (if exist "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" (forfiles /P "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" /M "f_*." /C "cmd /c del @path"))
+for /d %%u in (C:\Users\*) do (if exist "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" (forfiles /P "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" /M "data.*" /C "cmd /c del @path"))
+for /d %%u in (C:\Users\*) do (if exist "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" (forfiles /P "%%u\AppData\Local\TeamViewer\EdgeBrowserControl" /M "index.*" /C "cmd /c del @path"))
 
 pause
 goto start
