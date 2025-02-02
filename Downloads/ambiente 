@@ -1,0 +1,29 @@
+@echo off
+REM Define a pasta de destino (Documentos)
+set "destino=%USERPROFILE%\Documents"
+
+REM Cria a pasta de destino se não existir
+if not exist "%destino%" (
+    mkdir "%destino%"
+)
+
+REM Navega até a pasta de destino
+cd /d "%destino%"
+
+REM Baixa a Godot Engine
+echo Baixando Godot Engine...
+powershell -Command "Invoke-WebRequest -Uri 'https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_win64.exe.zip' -OutFile 'Godot_v4.0-stable_win64.exe.zip'"
+
+REM Extrai o arquivo ZIP baixado
+echo Extraindo Godot Engine...
+powershell -Command "Expand-Archive -Path 'Godot_v4.0-stable_win64.exe.zip' -DestinationPath '%destino%'"
+
+REM Remove o arquivo ZIP após a extração
+del "Godot_v4.0-stable_win64.exe.zip"
+
+REM Clona o repositório Git
+echo Clonando repositório Git...
+git clone https://github.com/seu-usuario/seu-repositorio.git
+
+echo Processo concluído!
+pause
